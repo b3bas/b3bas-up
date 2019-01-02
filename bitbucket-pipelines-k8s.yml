@@ -1,0 +1,23 @@
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: golang:1.7
+
+pipelines:
+  default:
+    - step:
+        # set KUBERNETES_USERNAME and KUBERNETES_PASSWORD as environment variables
+        # this assumes your Docker image is already pushed to DockerHub with a version of BITBUCKET_BUILD_NUMBER
+        # and is running on the Kubernetes cluster. Use the following command locally to run the image before setting the deployment:
+        # kubectl run <app-name> --image=<my.dockerhub.username>/<image-name>:latest
+        name: Deploy to Kubernetes
+        deployment: test   # set to test, staging or production
+        # trigger: manual  # uncomment to have a manual step
+        image: atlassian/pipelines-kubectl
+        script:
+          # Configure kubectl
+          - kubectl config set-cluster <cluster-name> --server=<kubernetes-host> --certificate-authority=<path.to.ca>
+          - kubectl config set-credentials <username> --username=$KUBERNETES_USERNAME --password=$KUBERNETES_PASSWORD
+          - kubectl config set-context <context> --cluster=<cluster-name> --user=<username>
+          - kubectl config use-context <context>
+          # Update the deployment to use the new Docker image
+          - kubectl set image deployment/<app-name> <app-name>=<image-name>:$BITBUCKET_BUILD_NUMBER

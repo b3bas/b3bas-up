@@ -1,0 +1,19 @@
+[[constraint]]
+  name = "github.com/Sirupsen/logrus"
+  version = "1.0.5"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/b3bas/b3bas"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/dimiro1/banner"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/lib/pq"
+
+[prune]
+  go-tests = true
+  unused-packages = true

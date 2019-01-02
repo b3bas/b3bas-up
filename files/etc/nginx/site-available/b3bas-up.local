@@ -1,0 +1,36 @@
+upstream b3bas-up-web {
+    server 127.0.0.1:8080;
+}
+
+server {
+    listen 80;
+    server_name b3bas-up.local b3bas-up.service.staging.consul;
+
+    client_max_body_size 10M;
+    root /var/www/b3bas-up/src/public;
+
+    access_log /var/log/nginx/b3bas-up.access.log;
+    error_log  /var/log/nginx/b3bas-up.error.log;
+
+    proxy_set_header    Host                        $host;
+    proxy_set_header    Accept-Encoding             "";
+    proxy_set_header    X-Forwarded-Host            $host:$server_port;
+    proxy_set_header    X-Forwarded-Server          $server_name;
+    proxy_set_header    X-Forwarded-For             $remote_addr;
+    proxy_set_header    X-Forwarded-Request-Uri     $request_uri;
+    proxy_set_header    X-Forwarded-Script-Uri      $scheme://$host$uri;
+    proxy_set_header    X-Forwarded-Script-Name     $uri;
+    proxy_set_header    X-Forwarded-Https           on;
+    add_header          X-Content-Type-Options      nosniff;
+
+    add_header          X-XSS-Protection            '1; mode=block';
+    add_header          Cache-control               'no-cache, no-store, must-revalidate';
+
+    try_files $uri/index.html $uri @site;
+
+    location @site {
+        proxy_pass http://b3bas-up-web;
+        proxy_redirect off;
+        proxy_cookie_path / "/; HTTPOnly; Secure";
+    }
+}

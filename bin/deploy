@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cp -r "$SRCDIR"files/* $PKGDIR/
+cp -r "$SRCDIR"explorer $PKGDIR/var/www/b3bas-up/

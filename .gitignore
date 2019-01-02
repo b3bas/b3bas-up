@@ -1,0 +1,11 @@
+.idea/
+bin/b3bas
+bin/b3bas-up
+src/vendor/
+src/frontend/react/dist/
+src/frontend/react/public/
+src/frontend/react/node_modules/
+vendor/
+.env
+app
+banner.txt
