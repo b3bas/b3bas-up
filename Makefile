@@ -6,8 +6,9 @@ LDFLAGS:=-ldflags "-X github.com/b3bas/b3bas-up/src/config.Version=${VERSION}"
 default: run
 
 depends:
-	@echo "Install and/or Update Dependencies..."
+	@echo "Install and/or update dependencies..."
 	@dep ensure -v
+	@echo "Dependencies updated... [DONE]"
 
 test:
 	echo "mode: count" > coverage-all.out
@@ -16,19 +17,19 @@ test:
 		tail -n +2 coverage.out >> coverage-all.out;)
 
 cover: test
-	@echo "Running B3bas-Up (Test)..."
+	@echo "Running b3bas-up (test)..."
 	@go tool cover -html=coverage-all.out
 
 run:
-	@echo "Running B3bas-Up..."
+	@echo "Running b3bas-up..."
 	@rm -rf banner.text
 	@ln -sf ./bin/banner.txt ./banner.txt
 	@go run ${LDFLAGS} app.go
 
 build: clean
 	@go build ${LDFLAGS} -a -o ./bin/b3bas-up app.go
-	@echo "Build Binary... DONE"
+	@echo "Build binary...         [DONE]"
 
 clean:
 	@rm -rf ./bin/b3bas-up coverage.out coverage-all.out
-	@echo "Cleanup Binary... DONE"
+	@echo "Cleanup binary...       [DONE]"
