@@ -31,15 +31,11 @@
 
 [[constraint]]
   name = "github.com/aws/aws-sdk-go"
-  version = "1.16.12"
-
-[[constraint]]
-  name = "github.com/b3bas/b3bas-up"
-  version = "0.1.0"
+  version = "1.16.13"
 
 [[constraint]]
   name = "github.com/b3bas/grace"
-  version = "1.0"
+  version = "1.0.0"
 
 [[constraint]]
   branch = "master"

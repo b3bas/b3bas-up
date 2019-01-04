@@ -10,7 +10,7 @@
   version = "v1.2.0"
 
 [[projects]]
-  digest = "1:e54ce616cefac1ccc02047e14c74c56d5727ef6b2b8f373cc8232228a3d18f25"
+  digest = "1:328b4982784f2686809bc5e63912a76fb74429141ab421e96c54c7f2e0e6edc2"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -46,19 +46,13 @@
     "private/protocol/restxml",
     "private/protocol/xml/xmlutil",
     "service/s3",
+    "service/s3/s3iface",
+    "service/s3/s3manager",
     "service/sts",
   ]
   pruneopts = "UT"
-  revision = "1fae280bf2fb990480b751e0ba0d2428548c98b6"
-  version = "v1.16.12"
-
-[[projects]]
-  digest = "1:1011ca7199565b8da83d9b0a52f9df6468dedf9acf765665dd0f75fd7d0f4e9c"
-  name = "github.com/b3bas/b3bas-up"
-  packages = ["src/config"]
-  pruneopts = "UT"
-  revision = "5ec6c2a11d2e3e57198b3e5e0378d10ee2a2906f"
-  version = "0.1"
+  revision = "d75ca9c91e5bcf0c3adb9672a786ac65e8073a6e"
+  version = "v1.16.13"
 
 [[projects]]
   digest = "1:8a69e667891a3d2da859fd278eaa105f0ff0d415cf44b473d36937bf8d3b6f8e"
@@ -171,7 +165,7 @@
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
   pruneopts = "UT"
-  revision = "8d7daa0c54b357f3071e11eaef7efc4e19a417e2"
+  revision = "ff983b9c42bc9fbf91556e191cc8efb585c16908"
 
 [[projects]]
   branch = "master"
@@ -222,7 +216,7 @@
     "github.com/aws/aws-sdk-go/aws/credentials",
     "github.com/aws/aws-sdk-go/aws/session",
     "github.com/aws/aws-sdk-go/service/s3",
-    "github.com/b3bas/b3bas-up/src/config",
+    "github.com/aws/aws-sdk-go/service/s3/s3manager",
     "github.com/b3bas/grace",
     "github.com/dimiro1/banner",
     "github.com/dimiro1/banner/autoload",
