@@ -53,7 +53,7 @@ B3bas Uploader is simple S3 uploader file, build on the top of B3bas Golang Fram
   cp ./files/etc/b3bas-up/staging/b3bas-up.main.ini /etc/b3bas-up/staging/b3bas-up.main.ini
   cp ./files/etc/b3bas-up/production/b3bas-up.main.ini /etc/b3bas-up/production/b3bas-up.main.ini
   ```  
-* Default Region & Bucket in `src/config/init.go`
+* Default Region & Bucket in `app.go`
   ```
   S3_REGION = "ap-southeast-1"
   S3_BUCKET = "b3bas-up"
