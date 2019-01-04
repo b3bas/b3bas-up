@@ -4,11 +4,6 @@ import (
 	"time"
 )
 
-var (
-	S3_REGION string = "ap-southeast-1"
-	S3_BUCKET string = "b3bas-up"
-)
-
 const (
 	// Environment
 	ENV_DEVELOPMENT = "development"
