@@ -8,7 +8,10 @@
 	- login to UI web aws s3 interface
 	- go to S3 service
 	- create a Bucket called `b3bas-up` in the desired region (default region: `ap-southeast-1`)
-	- run:  go run main.go b3bas-up [file_name]
+	- run:  go run app.go b3bas-up [file_name]
+	- run with binary:
+	    make build
+		./bin/b3bas-up [bucket_name] [file_name]
 */
 
 package main
