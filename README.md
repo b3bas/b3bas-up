@@ -77,6 +77,12 @@ B3bas Uploader is simple S3 uploader file, build on the top of B3bas Golang Fram
   go run app.go
   ```
 
+## Using B3bas Uploader
+```
+make build
+./bin/b3bas-up [bucket_name] [file_name]
+```
+
 ## License
 ```
 Apache version 2
